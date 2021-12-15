@@ -18,7 +18,7 @@ func TestSum(t *testing.T) {
 	require := require.New(t)
 
 	ci := Column[int]{1, 2, 3}
-	require.Equal(6, c.Sum())
+	require.Equal(6, ci.Sum())
 
 	cs := Column[string]{"a", "b", "c"}
 	require.Equal("abc", cs.Sum())
