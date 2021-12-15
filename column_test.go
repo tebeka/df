@@ -47,4 +47,27 @@ func TestMax(t *testing.T) {
 	v, err := ci.Max()
 	require.NoError(err)
 	require.Equal(ci[0], v)
+
+	ci = Column[int]{2, -1, 3}
+	v, err = ci.Max()
+	require.NoError(err)
+	require.Equal(3, v)
+}
+
+func TestMin(t *testing.T) {
+	require := require.New(t)
+
+	var ci Column[int]
+	_, err := ci.Min()
+	require.Error(err)
+
+	ci = Column[int]{7}
+	v, err := ci.Min()
+	require.NoError(err)
+	require.Equal(ci[0], v)
+
+	ci = Column[int]{2, -1, 3}
+	v, err = ci.Min()
+	require.NoError(err)
+	require.Equal(-1, v)
 }
