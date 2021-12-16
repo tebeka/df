@@ -1,0 +1,29 @@
+I'm trying to learn about generics by create a data frame. It's a structure that holds several columns, each column can contain a different type.
+
+For the column I'm using:
+
+```
+type Value interface {
+	constraints.Ordered | time.Duration
+}
+
+type Column[T Value] []T
+```
+
+And then for the frame I'd like to do
+
+```
+type Frame struct {
+	columns []Column
+}
+```
+
+This of course won't compile:
+
+```
+./frame.go:4:12: cannot use generic type Column[T Value] without instantiation
+```
+
+Is there a way to specify a slice of Column, each with different T?
+
+Thanks (full code at https://github.com/tebeka/df)
