@@ -4,13 +4,12 @@ import (
 	"constraints"
 	"fmt"
 	"sort"
-	"time"
 )
 
 
 type Value interface {
 	// TODO: time.Time
-	constraints.Ordered | time.Duration
+	constraints.Ordered
 }
 
 type Column[T Value] []T

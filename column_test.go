@@ -2,6 +2,7 @@ package df
 
 import (
 	"testing"
+	"time"
 
 	"github.com/stretchr/testify/require"
 )
@@ -12,6 +13,9 @@ func TestCreate(t *testing.T) {
 	size := 10
 	c := make(Column[int], size)
 	require.Equal(size, len(c))
+
+	dc := make(Column[time.Duration], size)
+	require.Equal(size, len(dc))
 }
 
 func TestSum(t *testing.T) {
